@@ -1,0 +1,110 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --text-dark: #4a4a4a;
+    --gold: #d4af37;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    color: var(--text-dark);
+    height: 100vh;
+    overflow: hidden; /* For smooth SPA experience */
+    position: relative;
+}
+
+h1, h2, h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; color: #333; }
+
+/* Layout & Pages */
+.page {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out, transform 1s ease;
+    transform: translateY(20px);
+    overflow-y: auto;
+    padding: 20px;
+}
+.page.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+.flex-center { display: flex; align-items: center; justify-content: center; flex-direction: column; }
+
+/* Glassmorphism Components */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+.full-width { max-width: 800px; }
+
+/* Buttons */
+button { font-family: inherit; cursor: pointer; transition: 0.3s; border: none; }
+.primary-btn {
+    background: linear-gradient(45deg, #ff758c 0%, #ff7eb3 100%);
+    color: white; padding: 12px 30px; border-radius: 30px; font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4); margin-top: 20px;
+}
+.primary-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255, 117, 140, 0.6); }
+.secondary-btn { background: rgba(255,255,255,0.5); padding: 10px 20px; border-radius: 20px; margin-top: 15px; }
+.secondary-btn:hover { background: rgba(255,255,255,0.8); }
+
+.glass-btn { background: var(--glass-bg); backdrop-filter: blur(5px); border-radius: 50%; width: 45px; height: 45px; border: 1px solid var(--glass-border); }
+.float-btn { position: fixed; top: 20px; right: 20px; z-index: 100; font-size: 1.2rem; }
+
+/* Typography & Effects */
+.glow-text { text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); }
+.highlight { color: #ff477e; }
+.gold { color: var(--gold); text-shadow: 0 0 15px rgba(212, 175, 55, 0.5); }
+.huge-text { font-size: 4rem; color: #ff477e; text-shadow: 0 0 20px rgba(255, 71, 126, 0.5); }
+
+/* Galleries & Grids */
+.gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+.gallery-item { background: rgba(255,255,255,0.4); height: 150px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: 0.3s; cursor: pointer; }
+.gallery-item:hover { transform: scale(1.05); background: rgba(255,255,255,0.7); }
+
+.cards-container { display: flex; flex-direction: column; gap: 10px; margin-top: 20px; }
+.reason-card { background: rgba(255,255,255,0.5); padding: 15px; border-radius: 10px; transition: 0.3s; }
+.reason-card:hover { transform: translateX(10px); background: rgba(255,255,255,0.8); }
+
+.wishes-list { list-style: none; text-align: left; margin-top: 20px; line-height: 2; font-size: 1.1rem; }
+
+.timeline { margin-top: 20px; border-left: 2px solid #ff758c; padding-left: 20px; text-align: left; }
+.timeline-item { margin-bottom: 20px; position: relative; }
+.timeline-item::before { content: ''; position: absolute; left: -26px; top: 5px; width: 10px; height: 10px; background: #ff758c; border-radius: 50%; }
+
+/* Animations */
+.hidden { display: none !important; }
+.fade-in { animation: fadeIn 1.5s forwards; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.heartbeat { animation: beat 1.5s infinite; }
+@keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+/* Floating Hearts Background */
+#hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: -1; }
+.heart { position: absolute; bottom: -50px; font-size: 20px; animation: floatUp 8s linear infinite; opacity: 0.5; }
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Confetti */
+.confetti { position: absolute; width: 10px; height: 10px; background: red; animation: fall 3s linear forwards; }
+@keyframes fall { to { transform: translateY(100vh) rotate(720deg); } }
+
+.quote-text { margin-top: 15px; font-style: italic; color: #ff477e; min-height: 30px;}
+.mt-2 { margin-top: 20px; }
