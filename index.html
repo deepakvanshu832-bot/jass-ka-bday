@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday, My Love ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="bg-music.mp3" type="audio/mpeg">
+    </audio>
+    <button id="muteBtn" class="glass-btn float-btn hidden">🔊</button>
+
+    <div id="hearts-bg"></div>
+
+    <section id="page-landing" class="page active flex-center">
+        <div class="glass-card text-center">
+            <h1 class="glow-text">Happy Birthday,<br><span class="highlight">[Name]</span> ❤️</h1>
+            <p>A very special journey awaits you...</p>
+            <button class="primary-btn" onclick="startJourney()">Start the Surprise ✨</button>
+        </div>
+    </section>
+
+    <section id="page-message" class="page flex-center">
+        <div class="glass-card">
+            <h2>My Dearest,</h2>
+            <p id="typewriter-text" class="min-h-text"></p>
+            <button class="primary-btn hidden fade-in" id="msgNextBtn" onclick="nextPage('page-memories')">Next ❤️</button>
+        </div>
+    </section>
+
+    <section id="page-memories" class="page flex-center">
+        <div class="glass-card full-width">
+            <h2>Our Beautiful Memories</h2>
+            <div class="gallery">
+                <div class="gallery-item">🖼️ Memory 1</div>
+                <div class="gallery-item">🖼️ Memory 2</div>
+                <div class="gallery-item">🖼️ Memory 3</div>
+                <div class="gallery-item">🖼️ Memory 4</div>
+            </div>
+            <button class="primary-btn mt-2" onclick="nextPage('page-reasons')">Next ❤️</button>
+        </div>
+    </section>
+
+    <section id="page-reasons" class="page flex-center">
+        <div class="glass-card">
+            <h2>Why I Love You</h2>
+            <div class="cards-container">
+                <div class="reason-card">Your beautiful smile ✨</div>
+                <div class="reason-card">Your kind heart 💖</div>
+                <div class="reason-card">The way you laugh 🌸</div>
+            </div>
+            <button class="secondary-btn mt-2" onclick="generateQuote()">Generate a Love Quote 💌</button>
+            <p id="quote-display" class="quote-text">"You are my today and all of my tomorrows."</p>
+            <button class="primary-btn mt-2" onclick="nextPage('page-wishes')">Next ❤️</button>
+        </div>
+    </section>
+
+    <section id="page-wishes" class="page flex-center">
+        <div class="glass-card">
+            <h2>My Wishes For You</h2>
+            <ul class="wishes-list">
+                <li>May you always find joy in little things. 🌟</li>
+                <li>May all your dreams come true this year. 🎂</li>
+                <li>May our love grow stronger every single day. 💑</li>
+            </ul>
+            <button class="primary-btn mt-2" onclick="nextPage('page-timeline')">Next ❤️</button>
+        </div>
+    </section>
+
+    <section id="page-timeline" class="page flex-center">
+        <div class="glass-card">
+            <h2>Our Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item"><strong>The First Hello:</strong> When everything changed.</div>
+                <div class="timeline-item"><strong>The First Date:</strong> Butterflies and smiles.</div>
+                <div class="timeline-item"><strong>Today:</strong> Celebrating you!</div>
+                <div class="timeline-item"><strong>Forever:</strong> You and me.</div>
+            </div>
+            <button class="primary-btn mt-2" onclick="nextPage('page-surprise')">Next ❤️</button>
+        </div>
+    </section>
+
+    <section id="page-surprise" class="page flex-center">
+        <div class="glass-card text-center">
+            <h2>I have a surprise...</h2>
+            <p>Click the button below.</p>
+            <button class="primary-btn mt-2" id="revealBtn" onclick="triggerSurprise()">Reveal Surprise 🎁</button>
+            <div id="hidden-surprise" class="hidden mt-2">
+                <h3 class="glow-text gold">You are the best thing that ever happened to me!</h3>
+                <button class="primary-btn mt-2" onclick="nextPage('page-final')">Final Step ❤️</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="page-final" class="page flex-center text-center">
+        <div>
+            <h1 class="huge-text heartbeat">I Love You<br>Forever ❤️</h1>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
